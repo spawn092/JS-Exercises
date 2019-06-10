@@ -67,4 +67,64 @@ var company = {
 //console.log(getReadingStatus(1)) 
 console.log(getProp(1, 'author'))
 
+///Task-5
+
+var cart = [ 
+    {
+        name: 'Shoes',
+        price: 460,
+        quantity: 4
+    },
+    {
+        name: 'Regular Tees',
+        price: 655.50,
+        quantity: 6
+    },
+    {
+        name: 'Socks',
+        price: 65.99,
+        quantity: 2
+    }];
+
+    //5a- Add a new item
+
+    function addItem(newItem){
+        cart.push(newItem)
+    }
+    addItem({name: 'Book',
+    price: 589,
+    quantity: 4})
+    console.log(cart)
+
+    //5b- Sort by a given property
+
+    function sortCart(prop){
+        cart.sort(function(a,b){
+            if ( a[prop] < b[prop] ){
+                return 1;
+              }
+              if ( a[prop] > b[prop]){
+                return 1;
+              }
+              return 0;
+        }) 
+    }
+        sortCart('name')
+        console.log(cart)
+   
+    //5c- find item by name
+    function findByName(name){
+        return name.name==='Socks';
+    }
+    console.log(cart.find(findByName));
+
+    //5d- get total cost
     
+    function getTotalCost(){
+       var totalCost = 0;
+       for (var i in cart){
+           totalCost += cart[i].price;
+       }
+       return totalCost;
+    }
+    console.log(getTotalCost());
