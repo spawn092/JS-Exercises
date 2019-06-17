@@ -113,10 +113,14 @@ var cart = [
         console.log(cart)
    
     //5c- find item by name
-    function findByName(name){
-        return name.name==='Socks';
-    }
-    console.log(cart.find(findByName));
+    findByName = function(name){
+        var myArr =  cart.filter(function(item) {
+            return item.name == name;
+    });
+    console.log(myArr)
+}
+
+findByName("Shoes")
 
     //5d- get total cost
     
